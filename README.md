@@ -1,18 +1,3 @@
-# Nicol Rider - Personal Portfolio Website
-
-A modern, responsive personal portfolio website built with Astro, TypeScript, and modern web technologies. This 4-page website showcases professional experience, projects, and skills with a clean, modern design.
-
-## 🚀 Features
-
-- **Modern Design**: Clean, responsive layout with smooth animations
-- **4 Pages**: Home, About, Projects, and Resume
-- **Interactive Navigation**: Circular design on homepage with smooth transitions
-- **PDF Download**: Resume page includes a download button for PDF version
-- **Easy Content Management**: Markdown files for easy content editing
-- **SEO Optimized**: Proper meta tags and structured data
-- **Mobile Responsive**: Optimized for all device sizes
-- **Fast Performance**: Built with Astro for optimal loading speeds
-
 ## 📁 Project Structure
 
 ```
@@ -174,31 +159,3 @@ The website is fully responsive and optimized for:
 - Mobile (320px - 767px)
 
 ## 🔧 Development
-
-### Adding New Pages
-1. Create a new `.astro` file in `src/pages/`
-2. Import the Layout component
-3. Add navigation link in `src/layouts/Layout.astro`
-
-### Adding New Components
-1. Create component files in `src/components/`
-2. Import and use in your pages
-
-### Styling
-- Use CSS custom properties for consistent theming
-- Follow BEM methodology for CSS classes
-- Use CSS Grid and Flexbox for layouts
-
-## 📞 Support
-
-For questions or issues:
-- Create an issue in the repository
-- Contact: nicol@example.com
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-**Built with ❤️ using Astro, TypeScript, and modern web technologies**
