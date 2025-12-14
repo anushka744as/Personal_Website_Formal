@@ -1,0 +1,52 @@
+:root {
+  /* ---- Brand Colors ---- */
+  --color-accent: #2d3436;
+  --color-accent-hover: #636e72;
+
+  /* ---- Light Mode (Default) ---- */
+  --color-bg: #faf8f5;
+  --color-bg-secondary: #f5f0e8;
+  --color-bg-navbar: rgba(250, 248, 245, 0.95);
+  --color-bg-hero: #ede8df;
+  --color-text: #1a1a1a;
+  --color-text-muted: #5c5c5c;
+  --color-border: #e0dcd4;
+  --color-shadow: rgba(0, 0, 0, 0.06);
+
+  /* ---- Overlay Colors ---- */
+  --color-overlay-light: rgba(45, 52, 54, 0.08);
+  --color-overlay-medium: rgba(45, 52, 54, 0.15);
+  --color-overlay-strong: rgba(45, 52, 54, 0.25);
+}
+
+/* ---- Dark Mode ---- */
+[data-theme="dark"] {
+  --color-accent: #e0dcd4;
+  --color-accent-hover: #c4bfb6;
+
+  --color-bg: #1a1a1a;
+  --color-bg-secondary: #242424;
+  --color-bg-navbar: rgba(26, 26, 26, 0.95);
+  --color-bg-hero: #2d2d2d;
+  --color-text: #f5f0e8;
+  --color-text-muted: #a3a3a3;
+  --color-border: #3d3d3d;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+
+  --color-overlay-light: rgba(245, 240, 232, 0.08);
+  --color-overlay-medium: rgba(245, 240, 232, 0.15);
+  --color-overlay-strong: rgba(245, 240, 232, 0.25);
+}
+
+/* ---- Legacy Aliases (backward compatibility) ---- */
+:root,
+[data-theme="dark"] {
+  --primary-color: var(--color-accent);
+  --secondary-color: var(--color-accent-hover);
+  --text-color: var(--color-text);
+  --light-text: var(--color-text-muted);
+  --background: var(--color-bg);
+  --light-background: var(--color-bg-secondary);
+  --border-color: var(--color-border);
+  --color-text-white: #ffffff;
+}

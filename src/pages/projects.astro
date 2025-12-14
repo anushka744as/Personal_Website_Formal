@@ -1,0 +1,421 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    title: "E-Commerce Platform",
+    description: "A full-stack e-commerce platform built with React, Node.js, and PostgreSQL. Features include user authentication, product management, shopping cart, and payment integration.",
+    technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
+    image: "/images/project1.jpg",
+    liveUrl: "https://ecommerce-demo.com",
+    githubUrl: "https://github.com/nicolrider/ecommerce-platform",
+    featured: true
+  },
+  {
+    title: "Task Management App",
+    description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+    technologies: ["Next.js", "TypeScript", "Socket.io", "MongoDB"],
+    image: "/images/project2.jpg",
+    liveUrl: "https://task-app-demo.com",
+    githubUrl: "https://github.com/nicolrider/task-management",
+    featured: true
+  },
+  {
+    title: "Weather Dashboard",
+    description: "A responsive weather dashboard that displays current weather conditions and forecasts using multiple weather APIs.",
+    technologies: ["Vue.js", "OpenWeather API", "Chart.js", "CSS3"],
+    image: "/images/project3.jpg",
+    liveUrl: "https://weather-dashboard-demo.com",
+    githubUrl: "https://github.com/nicolrider/weather-dashboard",
+    featured: false
+  },
+  {
+    title: "Portfolio Website",
+    description: "A modern, responsive portfolio website built with Astro and TypeScript, featuring smooth animations and optimal performance.",
+    technologies: ["Astro", "TypeScript", "CSS3", "Vite"],
+    image: "/images/project4.jpg",
+    liveUrl: "https://nicolrider.com",
+    githubUrl: "https://github.com/nicolrider/portfolio",
+    featured: false
+  },
+  {
+    title: "Blog CMS",
+    description: "A content management system for blogs with markdown support, SEO optimization, and admin dashboard.",
+    technologies: ["React", "Express.js", "Markdown", "AWS S3"],
+    image: "/images/project5.jpg",
+    liveUrl: "https://blog-cms-demo.com",
+    githubUrl: "https://github.com/nicolrider/blog-cms",
+    featured: false
+  },
+  {
+    title: "Fitness Tracker",
+    description: "A mobile-first fitness tracking application with workout planning, progress tracking, and social features.",
+    technologies: ["React Native", "Firebase", "Redux", "Expo"],
+    image: "/images/project6.jpg",
+    liveUrl: "https://fitness-tracker-demo.com",
+    githubUrl: "https://github.com/nicolrider/fitness-tracker",
+    featured: false
+  }
+];
+---
+
+<Layout title="Projects - Nicol Rider">
+  <div class="projects-container">
+    <div class="back-button">
+      <a href="/" class="back-link">← Back to Home</a>
+    </div>
+    
+    <div class="projects-header">
+      <h1>My Projects</h1>
+      <p class="subtitle">A collection of my work and contributions to the tech community</p>
+    </div>
+    
+    <div class="featured-projects">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid featured">
+        {projects.filter(p => p.featured).map(project => (
+          <div class="project-card featured">
+            <div class="project-image">
+              <div class="image-placeholder">
+                <span>{project.title.charAt(0)}</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div class="technologies">
+                {project.technologies.map(tech => (
+                  <span class="tech-tag">{tech}</span>
+                ))}
+              </div>
+              <div class="project-links">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="project-link live">
+                  Live Demo
+                </a>
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="project-link github">
+                  View Code
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <div class="all-projects">
+      <h2>All Projects</h2>
+      <div class="projects-grid">
+        {projects.map(project => (
+          <div class="project-card">
+            <div class="project-image">
+              <div class="image-placeholder">
+                <span>{project.title.charAt(0)}</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div class="technologies">
+                {project.technologies.map(tech => (
+                  <span class="tech-tag">{tech}</span>
+                ))}
+              </div>
+              <div class="project-links">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="project-link live">
+                  Live Demo
+                </a>
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="project-link github">
+                  View Code
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <div class="cta-section">
+      <h2>Interested in Working Together?</h2>
+      <p>I'm always open to discussing new opportunities and exciting projects.</p>
+      <div class="cta-links">
+        <a href="mailto:nicol@example.com" class="cta-link">Get In Touch</a>
+        <a href="/resume" class="cta-link secondary">View Resume</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .projects-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 64px 48px;
+  }
+
+  .back-button {
+    margin-bottom: 48px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-text);
+  }
+
+  .projects-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .projects-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    letter-spacing: -0.01em;
+  }
+
+  .featured-projects, .all-projects {
+    margin-bottom: 64px;
+  }
+
+  .featured-projects h2, .all-projects h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 24px;
+  }
+
+  .projects-grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .projects-grid.featured {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  }
+
+  .projects-grid:not(.featured) {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  .project-card {
+    background: var(--color-bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px var(--color-shadow);
+  }
+
+  .project-card.featured {
+    border: 1px solid var(--color-text-muted);
+  }
+
+  .project-image {
+    height: 180px;
+    background: var(--color-bg-hero);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .image-placeholder {
+    width: 64px;
+    height: 64px;
+    background: var(--color-overlay-medium);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .project-content {
+    padding: 24px;
+  }
+
+  .project-content h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+
+  .project-content p {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .tech-tag {
+    background: var(--color-overlay-medium);
+    color: var(--color-text);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 12px;
+  }
+
+  .project-link {
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: -0.01em;
+    transition: all 0.2s ease;
+  }
+
+  .project-link.live {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  .project-link.live:hover {
+    opacity: 0.8;
+  }
+
+  .project-link.github {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .project-link.github:hover {
+    background: var(--color-bg);
+    border-color: var(--color-text);
+  }
+
+  .cta-section {
+    text-align: center;
+    background: var(--color-bg-secondary);
+    padding: 48px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .cta-link {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: all 0.2s ease;
+  }
+
+  .cta-link:not(.secondary) {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  .cta-link:not(.secondary):hover {
+    opacity: 0.8;
+  }
+
+  .cta-link.secondary {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .cta-link.secondary:hover {
+    background: var(--color-bg);
+    border-color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .projects-container {
+      padding: 32px 24px;
+    }
+
+    .projects-header h1 {
+      font-size: 1.875rem;
+    }
+
+    .projects-grid.featured,
+    .projects-grid:not(.featured) {
+      grid-template-columns: 1fr;
+    }
+
+    .project-links {
+      flex-direction: column;
+    }
+
+    .cta-section {
+      padding: 32px 24px;
+    }
+
+    .cta-links {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-link {
+      width: 180px;
+      text-align: center;
+    }
+  }
+</style>

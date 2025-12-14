@@ -1,0 +1,10 @@
+This is a placeholder for the resume PDF file.
+In a real implementation, you would replace this with an actual PDF file containing your resume.
+
+To create a proper PDF:
+1. Use a PDF generator like jsPDF
+2. Convert your resume content to PDF format
+3. Place the actual PDF file in the public/ directory
+4. The download button will automatically work
+
+For now, this serves as a demonstration of the download functionality.

@@ -1,0 +1,328 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - Nicol Rider">
+  <div class="about-container">
+    <div class="back-button">
+      <a href="/" class="back-link">← Back to Home</a>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-header">
+        <h1>About Me</h1>
+        <p class="subtitle">Software Engineer & Creative Developer</p>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-section">
+          <h2>Background</h2>
+          <p>
+            I'm a passionate software engineer with a love for creating innovative digital experiences. 
+            With expertise in modern web technologies, I specialize in building scalable applications 
+            that solve real-world problems.
+          </p>
+          <p>
+            My journey in tech began with curiosity and has evolved into a career focused on 
+            continuous learning and growth. I believe in writing clean, maintainable code and 
+            creating user experiences that make a difference.
+          </p>
+        </div>
+        
+        <div class="about-section">
+          <h2>Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Frontend</h3>
+              <ul>
+                <li>React & Next.js</li>
+                <li>TypeScript</li>
+                <li>HTML5 & CSS3</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+            
+            <div class="skill-category">
+              <h3>Backend</h3>
+              <ul>
+                <li>Node.js</li>
+                <li>Python</li>
+                <li>PostgreSQL</li>
+                <li>MongoDB</li>
+              </ul>
+            </div>
+            
+            <div class="skill-category">
+              <h3>Tools</h3>
+              <ul>
+                <li>Git & GitHub</li>
+                <li>Docker</li>
+                <li>AWS</li>
+                <li>Figma</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-section">
+          <h2>Experience</h2>
+          <div class="experience-item">
+            <h3>Senior Software Engineer</h3>
+            <p class="company">Tech Company Inc.</p>
+            <p class="duration">2022 - Present</p>
+            <p>
+              Leading development of scalable web applications using modern technologies. 
+              Mentoring junior developers and contributing to architectural decisions.
+            </p>
+          </div>
+          
+          <div class="experience-item">
+            <h3>Full Stack Developer</h3>
+            <p class="company">Startup XYZ</p>
+            <p class="duration">2020 - 2022</p>
+            <p>
+              Built and maintained multiple web applications from concept to deployment. 
+              Collaborated with cross-functional teams to deliver high-quality products.
+            </p>
+          </div>
+        </div>
+        
+        <div class="about-section">
+          <h2>Education</h2>
+          <div class="education-item">
+            <h3>Bachelor of Science in Computer Science</h3>
+            <p class="institution">University of Technology</p>
+            <p class="duration">2016 - 2020</p>
+            <p>
+              Graduated with honors. Focused on software engineering, algorithms, and 
+              data structures. Completed capstone project on machine learning applications.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-section">
+        <h2>Get In Touch</h2>
+        <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+        <div class="contact-links">
+          <a href="mailto:nicol@example.com" class="contact-link">Email Me</a>
+          <a href="https://linkedin.com/in/nicolrider" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+          <a href="https://github.com/nicolrider" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 48px;
+  }
+
+  .back-button {
+    margin-bottom: 48px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-text);
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .about-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    letter-spacing: -0.01em;
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 32px;
+    margin-bottom: 64px;
+  }
+
+  .about-section {
+    background: var(--color-bg-secondary);
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .about-section h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 20px;
+  }
+
+  .about-section p {
+    line-height: 1.7;
+    margin-bottom: 16px;
+    color: var(--color-text);
+    font-size: 0.9375rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+  }
+
+  .skill-category h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+
+  .skill-category ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .skill-category li {
+    padding: 8px 0;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .skill-category li:last-child {
+    border-bottom: none;
+  }
+
+  .experience-item, .education-item {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .experience-item:last-child, .education-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .experience-item h3, .education-item h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin-bottom: 6px;
+  }
+
+  .company, .institution {
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin-bottom: 4px;
+  }
+
+  .duration {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 12px;
+  }
+
+  .contact-section {
+    text-align: center;
+    background: var(--color-bg-secondary);
+    padding: 48px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .contact-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+
+  .contact-section p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--color-text);
+    color: var(--color-bg);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: opacity 0.2s ease;
+  }
+
+  .contact-link:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 32px 24px;
+    }
+
+    .about-header h1 {
+      font-size: 1.875rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-section {
+      padding: 32px 24px;
+    }
+
+    .contact-links {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-link {
+      width: 200px;
+      text-align: center;
+    }
+  }
+</style>
