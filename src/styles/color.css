@@ -1,7 +1,7 @@
 :root {
-  /* ---- Brand Colors ---- */
-  --color-accent: #2d3436;
-  --color-accent-hover: #636e72;
+  /* ---- Brand Colors (Purple Theme) ---- */
+  --color-accent: #6f57eb;
+  --color-accent-hover: #7b57eb;
 
   /* ---- Light Mode (Default) ---- */
   --color-bg: #faf8f5;
@@ -11,31 +11,31 @@
   --color-text: #1a1a1a;
   --color-text-muted: #5c5c5c;
   --color-border: #e0dcd4;
-  --color-shadow: rgba(0, 0, 0, 0.06);
+  --color-shadow: rgba(111, 87, 235, 0.1); /* Purple shadow hint */
 
   /* ---- Overlay Colors ---- */
-  --color-overlay-light: rgba(45, 52, 54, 0.08);
-  --color-overlay-medium: rgba(45, 52, 54, 0.15);
-  --color-overlay-strong: rgba(45, 52, 54, 0.25);
+  --color-overlay-light: rgba(111, 87, 235, 0.08);
+  --color-overlay-medium: rgba(111, 87, 235, 0.15);
+  --color-overlay-strong: rgba(111, 87, 235, 0.25);
 }
 
 /* ---- Dark Mode ---- */
 [data-theme="dark"] {
-  --color-accent: #e0dcd4;
-  --color-accent-hover: #c4bfb6;
+  --color-accent: #b957eb;
+  --color-accent-hover: #a057eb;
 
-  --color-bg: #1a1a1a;
-  --color-bg-secondary: #242424;
-  --color-bg-navbar: rgba(26, 26, 26, 0.95);
-  --color-bg-hero: #2d2d2d;
+  --color-bg: #0a0a0a;
+  --color-bg-secondary: #141414;
+  --color-bg-navbar: rgba(10, 10, 10, 0.95);
+  --color-bg-hero: #1a1a1a;
   --color-text: #f5f0e8;
   --color-text-muted: #a3a3a3;
-  --color-border: #3d3d3d;
-  --color-shadow: rgba(0, 0, 0, 0.2);
+  --color-border: #2d2d2d;
+  --color-shadow: rgba(185, 87, 235, 0.15);
 
-  --color-overlay-light: rgba(245, 240, 232, 0.08);
-  --color-overlay-medium: rgba(245, 240, 232, 0.15);
-  --color-overlay-strong: rgba(245, 240, 232, 0.25);
+  --color-overlay-light: rgba(185, 87, 235, 0.08);
+  --color-overlay-medium: rgba(185, 87, 235, 0.15);
+  --color-overlay-strong: rgba(185, 87, 235, 0.25);
 }
 
 /* ---- Legacy Aliases (backward compatibility) ---- */

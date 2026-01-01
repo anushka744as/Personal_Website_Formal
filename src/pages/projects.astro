@@ -186,8 +186,9 @@ const projects = [
 
   .subtitle {
     font-size: 1.0625rem;
-    color: var(--color-text-muted);
+    color: var(--color-accent);
     letter-spacing: -0.01em;
+    font-weight: 500;
   }
 
   .featured-projects, .all-projects {
@@ -226,10 +227,11 @@ const projects = [
   .project-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 32px var(--color-shadow);
+    border-color: var(--color-accent);
   }
 
   .project-card.featured {
-    border: 1px solid var(--color-text-muted);
+    border: 1px solid var(--color-border);
   }
 
   .project-image {
@@ -251,7 +253,7 @@ const projects = [
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-accent);
   }
 
   .project-content {
@@ -282,7 +284,7 @@ const projects = [
 
   .tech-tag {
     background: var(--color-overlay-medium);
-    color: var(--color-text);
+    color: var(--color-accent);
     padding: 4px 12px;
     border-radius: 4px;
     font-size: 0.75rem;
@@ -306,12 +308,13 @@ const projects = [
   }
 
   .project-link.live {
-    background: var(--color-text);
-    color: var(--color-bg);
+    background: var(--color-accent);
+    color: white;
   }
 
   .project-link.live:hover {
-    opacity: 0.8;
+    background: var(--color-accent-hover);
+    opacity: 1;
   }
 
   .project-link.github {
@@ -322,7 +325,8 @@ const projects = [
 
   .project-link.github:hover {
     background: var(--color-bg);
-    border-color: var(--color-text);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
 
   .cta-section {

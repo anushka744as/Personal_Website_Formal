@@ -1,5 +1,6 @@
 ---
 import '../styles/color.css';
+import { ThemeParticleBackground } from '../components/ThemeParticleBackground';
 
 export interface Props {
   title: string;
@@ -22,6 +23,7 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <ThemeParticleBackground client:only="react" />
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-left">
@@ -103,10 +105,17 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
     line-height: 1.7;
     letter-spacing: -0.01em;
     color: var(--color-text);
-    background-color: var(--color-bg);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: transparent; /* Let ParticleBackground show through */
+    min-height: 100vh;
+    position: relative;
+    transition: color 0.3s ease;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    background-color: var(--color-bg); /* Fallback/FOUC prevention */
+    transition: background-color 0.3s ease;
   }
 
   .navbar {
@@ -186,7 +195,7 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
   }
 
   .nav-link:hover {
-    color: var(--color-text);
+    color: var(--color-accent);
   }
 
   .nav-link::after {
@@ -196,7 +205,7 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
     height: 1px;
     bottom: -4px;
     left: 0;
-    background-color: var(--color-text);
+    background-color: var(--color-accent);
     transition: width 0.2s ease;
   }
 
@@ -219,7 +228,8 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
 
   .theme-toggle:hover {
     background: var(--color-bg-secondary);
-    color: var(--color-text);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
   }
 
   .sun-icon {
