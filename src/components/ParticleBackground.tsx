@@ -45,6 +45,7 @@ export const ParticleBackground: React.FC<Props> = ({ presetKey, className }) =>
     const linkDistance = preset.particles.line_linked.distance;
     const baseSpeed = preset.particles.move.speed / 2;
     const color = preset.particles.color.value;
+    const lineColor = preset.particles.line_linked.color;
     const lineOpacity = preset.particles.line_linked.opacity;
     const lineWidth = preset.particles.line_linked.width;
     const sizeValue = preset.particles.size.value;
@@ -146,7 +147,7 @@ export const ParticleBackground: React.FC<Props> = ({ presetKey, className }) =>
             const opacity = lineOpacity * (1 - Math.sqrt(dist2) / linkDistance);
             if (opacity > 0.01) {
               ctx.beginPath();
-              ctx.strokeStyle = color;
+              ctx.strokeStyle = lineColor;
               ctx.globalAlpha = opacity;
               ctx.lineWidth = lineWidth;
               ctx.moveTo(p.x, p.y);
@@ -168,7 +169,7 @@ export const ParticleBackground: React.FC<Props> = ({ presetKey, className }) =>
           if (dist < grabDistance) {
             const opacity = Math.max(0, 1 - dist / grabDistance) * lineOpacity;
             ctx.beginPath();
-            ctx.strokeStyle = color;
+            ctx.strokeStyle = lineColor;
             ctx.globalAlpha = opacity;
             ctx.lineWidth = lineWidth;
             ctx.moveTo(p.x, p.y);

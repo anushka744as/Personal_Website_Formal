@@ -32,22 +32,22 @@ export const PARTICLE_PRESETS: Record<string, ThemePreset> = {
     // LIGHT MODE PARTICLE CONFIGURATION
     particles: {
       number: { 
-        value: 60,                    
-        density: { enable: true, value_area: 800 } 
+        value: 80,                    
+        density: { enable: true, value_area: 700 } 
       },
       color: { value: '#6f57eb' },     // Primary Purple
-      opacity: { value: 0.6, random: false },
-      size: { value: 3, random: true },
+      opacity: { value: 0.9, random: false },
+      size: { value: 4, random: true },
       line_linked: { 
         enable: true, 
-        distance: 200,                 
+        distance: 250,                 
         color: '#6f57eb',              // Primary Purple for visibility
-        opacity: 0.6,                 
-        width: 1.5                     
+        opacity: 0.9,                 
+        width: 3                     
       },
       move: { 
         enable: true, 
-        speed: 1.5,                    
+        speed: 1.2,                    
         direction: 'none', 
         random: false, 
         straight: false, 
@@ -81,22 +81,22 @@ export const PARTICLE_PRESETS: Record<string, ThemePreset> = {
     // DARK MODE PARTICLE CONFIGURATION
     particles: {
       number: { 
-        value: 100,                    
-        density: { enable: true, value_area: 800 } 
+        value: 120,                    
+        density: { enable: true, value_area: 700 } 
       },
       color: { value: '#b957eb' },     // Lightest Purple for contrast
-      opacity: { value: 0.8, random: true },  
-      size: { value: 2.5, random: true },
+      opacity: { value: 1, random: false },  
+      size: { value: 4, random: true },
       line_linked: { 
         enable: true, 
-        distance: 200,                 
-        color: '#9457eb',              // Mid Purple
-        opacity: 0.6,                  
-        width: 1.2                       
+        distance: 250,                 
+        color: '#b957eb',              // Bright Purple
+        opacity: 0.9,                  
+        width: 2.5                       
       },
       move: { 
         enable: true, 
-        speed: 1,                    
+        speed: 0.8,                    
         direction: 'none', 
         random: true,                  
         straight: false, 

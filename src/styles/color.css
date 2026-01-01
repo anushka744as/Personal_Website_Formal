@@ -1,17 +1,22 @@
 :root {
-  /* ---- Brand Colors (Purple Theme) ---- */
+  /* ---- Brand Colors (Purple Gradient Theme) ---- */
   --color-accent: #6f57eb;
   --color-accent-hover: #7b57eb;
+  --color-accent-2: #8857eb;
+  --color-accent-3: #9457eb;
+  --color-accent-4: #a057eb;
+  --color-accent-5: #ad57eb;
+  --color-accent-6: #b957eb;
 
   /* ---- Light Mode (Default) ---- */
   --color-bg: #faf8f5;
   --color-bg-secondary: #f5f0e8;
-  --color-bg-navbar: rgba(250, 248, 245, 0.95);
+  --color-bg-navbar: rgba(250, 248, 245, 0.85);
   --color-bg-hero: #ede8df;
   --color-text: #1a1a1a;
   --color-text-muted: #5c5c5c;
   --color-border: #e0dcd4;
-  --color-shadow: rgba(111, 87, 235, 0.1); /* Purple shadow hint */
+  --color-shadow: rgba(111, 87, 235, 0.1);
 
   /* ---- Overlay Colors ---- */
   --color-overlay-light: rgba(111, 87, 235, 0.08);
@@ -19,23 +24,28 @@
   --color-overlay-strong: rgba(111, 87, 235, 0.25);
 }
 
-/* ---- Dark Mode ---- */
+/* ---- Dark Mode (Elegant Dark Blue) ---- */
 [data-theme="dark"] {
-  --color-accent: #b957eb;
+  --color-accent: #9457eb;
   --color-accent-hover: #a057eb;
+  --color-accent-2: #8857eb;
+  --color-accent-3: #7b57eb;
+  --color-accent-4: #ad57eb;
+  --color-accent-5: #b957eb;
+  --color-accent-6: #6f57eb;
 
-  --color-bg: #0a0a0a;
-  --color-bg-secondary: #141414;
-  --color-bg-navbar: rgba(10, 10, 10, 0.95);
-  --color-bg-hero: #1a1a1a;
-  --color-text: #f5f0e8;
-  --color-text-muted: #a3a3a3;
-  --color-border: #2d2d2d;
-  --color-shadow: rgba(185, 87, 235, 0.15);
+  --color-bg: #0d1526;
+  --color-bg-secondary: #141d30;
+  --color-bg-navbar: rgba(13, 21, 38, 0.85);
+  --color-bg-hero: #1a2540;
+  --color-text: #e8eaf0;
+  --color-text-muted: #9ba3b5;
+  --color-border: #2a3650;
+  --color-shadow: rgba(148, 87, 235, 0.2);
 
-  --color-overlay-light: rgba(185, 87, 235, 0.08);
-  --color-overlay-medium: rgba(185, 87, 235, 0.15);
-  --color-overlay-strong: rgba(185, 87, 235, 0.25);
+  --color-overlay-light: rgba(148, 87, 235, 0.06);
+  --color-overlay-medium: rgba(148, 87, 235, 0.12);
+  --color-overlay-strong: rgba(148, 87, 235, 0.2);
 }
 
 /* ---- Legacy Aliases (backward compatibility) ---- */
