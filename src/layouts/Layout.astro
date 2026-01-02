@@ -121,14 +121,12 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
   .navbar {
     position: fixed;
     top: 0;
-    width: calc(100% - 32px);
-    left: 16px;
+    width: 100%;
+    left: 0;
     background: var(--color-bg-navbar);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--color-border);
-    border-top: none;
-    border-radius: 0 0 20px 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border);
     z-index: 1000;
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 20px var(--color-shadow);

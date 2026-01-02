@@ -11,12 +11,16 @@
   /* ---- Light Mode (Default) ---- */
   --color-bg: #faf8f5;
   --color-bg-secondary: #f5f0e8;
-  --color-bg-navbar: rgba(250, 248, 245, 0.85);
+  --color-bg-navbar: rgba(250, 248, 245, 0.75);
   --color-bg-hero: #ede8df;
   --color-text: #1a1a1a;
   --color-text-muted: #5c5c5c;
   --color-border: #e0dcd4;
   --color-shadow: rgba(111, 87, 235, 0.1);
+
+  /* ---- Selection Colors ---- */
+  --color-selection-bg: #9457eb;
+  --color-selection-text: #ffffff;
 
   /* ---- Overlay Colors ---- */
   --color-overlay-light: rgba(111, 87, 235, 0.08);
@@ -36,12 +40,15 @@
 
   --color-bg: #0d1526;
   --color-bg-secondary: #141d30;
-  --color-bg-navbar: rgba(13, 21, 38, 0.85);
+  --color-bg-navbar: rgba(13, 21, 38, 0.75);
   --color-bg-hero: #1a2540;
   --color-text: #e8eaf0;
   --color-text-muted: #9ba3b5;
   --color-border: #2a3650;
   --color-shadow: rgba(148, 87, 235, 0.2);
+
+  --color-selection-bg: #7b57eb;
+  --color-selection-text: #ffffff;
 
   --color-overlay-light: rgba(148, 87, 235, 0.06);
   --color-overlay-medium: rgba(148, 87, 235, 0.12);
@@ -59,4 +66,15 @@
   --light-background: var(--color-bg-secondary);
   --border-color: var(--color-border);
   --color-text-white: #ffffff;
+}
+
+/* ---- Text Selection ---- */
+::selection {
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
+}
+
+::-moz-selection {
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
 }
