@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const honors = [
+  {
+    icon: "🥇",
+    name: "USACO Platinum",
+    level: "International",
+    grade: "Grade 11",
+    highlight: true,
+  },
+  {
+    icon: "🧮",
+    name: "AMC (124.5/150); double qualification for AIME",
+    level: "International",
+    grade: "Grade 11",
+    highlight: true,
+  },
+  {
+    icon: "📚",
+    name: "Subject Excellence Award for scoring A* in 6 subjects in the Pre-Boards",
+    level: "School",
+    grade: "Grade 10",
+  },
+  {
+    icon: "🏅",
+    name: "Triveni Award for ECs; Innovator's Award for Mission Gaganyana, Srijn Award for CAS",
+    level: "School",
+    grade: "",
+  },
+  {
+    icon: "🌐",
+    name: "CREST Gold",
+    level: "International",
+    grade: "Grade 12",
+  },
+  {
+    icon: "⚖️",
+    name: "John Locke (Potentially)",
+    level: "",
+    grade: "",
+  },
+  {
+    icon: "🌊",
+    name: "Blue Ocean (Top 250)",
+    level: "",
+    grade: "",
+  },
+  {
+    icon: "🎓",
+    name: "AP Scholars Award",
+    level: "",
+    grade: "",
+  },
+];
+---
+
+<Layout title="Honors - Abhyudaya Gupta">
+  <div class="honors-page">
+    <div class="back-button">
+      <a href="/" class="back-link">← Back to Home</a>
+    </div>
+
+    <div class="honors-header">
+      <h1>Honors &amp; Awards</h1>
+      <p class="subtitle">Recognition earned across competitions, school, and extracurriculars</p>
+    </div>
+
+    <div class="honors-content">
+      <div class="honors-grid">
+        {honors.map(item => (
+          <div class:list={["honor-card", { highlight: item.highlight }]}>
+            <div class="honor-icon">{item.icon}</div>
+            <h3 class="honor-name">{item.name}</h3>
+            <div class="honor-tags">
+              {item.level && <span class="honor-tag">{item.level}</span>}
+              {item.grade && <span class="honor-tag">{item.grade}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .honors-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 48px;
+    position: relative;
+  }
+
+  .back-button {
+    margin-bottom: 48px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent);
+  }
+
+  .honors-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .honors-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 1.0625rem;
+    color: var(--color-accent);
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+
+  .honors-content {
+    position: relative;
+  }
+
+  .honors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .honor-card {
+    background: var(--color-surface-strong);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .honor-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .honor-card.highlight {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 1px var(--color-accent);
+  }
+
+  .honor-icon {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+  }
+
+  .honor-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .honor-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .honor-tag {
+    display: inline-block;
+    background: var(--color-overlay-medium);
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  @media (max-width: 640px) {
+    .honors-page {
+      padding: 32px 24px;
+    }
+
+    .honors-header h1 {
+      font-size: 1.875rem;
+    }
+
+    .honors-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

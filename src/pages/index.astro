@@ -6,7 +6,21 @@ import Layout from '../layouts/Layout.astro';
   <div class="hero">
     <div class="hero-content">
       <h1 class="hero-title">Abhyudaya Gupta</h1>
-      <p class="hero-subtitle">Student · Builder · Problem Solver</p>
+      <p class="hero-subtitle">
+        A high school student passionate about <strong>STEM education</strong>,
+        <strong>research</strong>, and <strong>tech leadership</strong>.
+      </p>
+
+      <p class="hero-bio">
+        I built <strong>STEMXplore</strong>, a VR lab platform that's brought physics,
+        chemistry, and CS experiments to 50+ schools and 25K+ students across India.
+        I'm a published researcher working with Dr. Kuldeep Saha on graph-based modeling
+        of fracture patterns using Topological Data Analysis, lead the ICT department
+        for my school's Student Council running North India's #1 tech fest, and serve as
+        Team Head for our Space Settlement Design Competition team.
+      </p>
+
+      <p class="hero-quote">"Building things that make STEM click for kids who never had a lab to try it in."</p>
 
       <div class="action-grid">
         <a href="/about" class="action-item">
@@ -99,7 +113,23 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 500;
     letter-spacing: -0.02em;
     color: var(--color-text-muted);
-    margin-bottom: 46px;
+    margin-bottom: 20px;
+  }
+
+  .hero-bio {
+    max-width: 680px;
+    margin: 0 auto 24px;
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .hero-quote {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    opacity: 0.85;
+    margin-bottom: 40px;
   }
 
   .action-grid {

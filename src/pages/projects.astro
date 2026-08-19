@@ -1,65 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce platform built with React, Node.js, and PostgreSQL. Features include user authentication, product management, shopping cart, and payment integration.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    image: "/images/project1.jpg",
-    liveUrl: "https://ecommerce-demo.com",
-    githubUrl: "https://github.com/nicolrider/ecommerce-platform",
-    featured: true
-  },
-  {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    technologies: ["Next.js", "TypeScript", "Socket.io", "MongoDB"],
-    image: "/images/project2.jpg",
-    liveUrl: "https://task-app-demo.com",
-    githubUrl: "https://github.com/nicolrider/task-management",
-    featured: true
-  },
-  {
-    title: "Weather Dashboard",
-    description: "A responsive weather dashboard that displays current weather conditions and forecasts using multiple weather APIs.",
-    technologies: ["Vue.js", "OpenWeather API", "Chart.js", "CSS3"],
-    image: "/images/project3.jpg",
-    liveUrl: "https://weather-dashboard-demo.com",
-    githubUrl: "https://github.com/nicolrider/weather-dashboard",
-    featured: false
-  },
-  {
-    title: "Portfolio Website",
-    description: "A modern, responsive portfolio website built with Astro and TypeScript, featuring smooth animations and optimal performance.",
-    technologies: ["Astro", "TypeScript", "CSS3", "Vite"],
-    image: "/images/project4.jpg",
-    liveUrl: "https://nicolrider.com",
-    githubUrl: "https://github.com/nicolrider/portfolio",
-    featured: false
-  },
-  {
-    title: "Blog CMS",
-    description: "A content management system for blogs with markdown support, SEO optimization, and admin dashboard.",
-    technologies: ["React", "Express.js", "Markdown", "AWS S3"],
-    image: "/images/project5.jpg",
-    liveUrl: "https://blog-cms-demo.com",
-    githubUrl: "https://github.com/nicolrider/blog-cms",
-    featured: false
-  },
-  {
-    title: "Fitness Tracker",
-    description: "A mobile-first fitness tracking application with workout planning, progress tracking, and social features.",
-    technologies: ["React Native", "Firebase", "Redux", "Expo"],
-    image: "/images/project6.jpg",
-    liveUrl: "https://fitness-tracker-demo.com",
-    githubUrl: "https://github.com/nicolrider/fitness-tracker",
-    featured: false
-  }
-];
+const projects = [];
 ---
 
-<Layout title="Projects - Nicol Rider">
+<Layout title="Projects - Abhyudaya Gupta">
   <div class="projects-container">
     <div class="back-button">
       <a href="/" class="back-link">← Back to Home</a>
@@ -70,6 +15,11 @@ const projects = [
       <p class="subtitle">A collection of my work and contributions to the tech community</p>
     </div>
     
+    {projects.length === 0 && (
+      <p class="empty-state">Projects coming soon.</p>
+    )}
+
+    {projects.some(p => p.featured) && (
     <div class="featured-projects">
       <h2>Featured Projects</h2>
       <div class="projects-grid featured">
@@ -101,7 +51,9 @@ const projects = [
         ))}
       </div>
     </div>
-    
+    )}
+
+    {projects.length > 0 && (
     <div class="all-projects">
       <h2>All Projects</h2>
       <div class="projects-grid">
@@ -133,13 +85,13 @@ const projects = [
         ))}
       </div>
     </div>
-    
+    )}
+
     <div class="cta-section">
       <h2>Interested in Working Together?</h2>
       <p>I'm always open to discussing new opportunities and exciting projects.</p>
       <div class="cta-links">
-        <a href="mailto:nicol@example.com" class="cta-link">Get In Touch</a>
-        <a href="/resume" class="cta-link secondary">View Resume</a>
+        <a href="mailto:abhyudaya.gupta.ag@gmail.com" class="cta-link">Get In Touch</a>
       </div>
     </div>
   </div>
@@ -169,7 +121,7 @@ const projects = [
   }
 
   .back-link:hover {
-    color: var(--color-text);
+    color: var(--color-accent);
   }
 
   .projects-header {
@@ -190,6 +142,13 @@ const projects = [
     color: var(--color-accent);
     letter-spacing: -0.01em;
     font-weight: 500;
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-bottom: 64px;
   }
 
   .featured-projects, .all-projects {
@@ -218,17 +177,13 @@ const projects = [
   }
 
   .project-card {
-    background: rgba(245, 240, 232, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 8px;
+    background: var(--color-surface-strong);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--color-border);
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
-  }
-
-  [data-theme="dark"] .project-card {
-    background: rgba(20, 20, 20, 0.85);
   }
 
   .project-card:hover {
@@ -316,7 +271,7 @@ const projects = [
 
   .project-link.live {
     background: var(--color-accent);
-    color: white;
+    color: #ffffff;
   }
 
   .project-link.live:hover {
@@ -338,17 +293,13 @@ const projects = [
 
   .cta-section {
     text-align: center;
-    background: rgba(245, 240, 232, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--color-surface-strong);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     padding: 48px;
-    border-radius: 8px;
+    border-radius: 16px;
     border: 1px solid var(--color-border);
     transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-
-  [data-theme="dark"] .cta-section {
-    background: rgba(20, 20, 20, 0.85);
   }
 
   .cta-section h2 {
@@ -384,12 +335,12 @@ const projects = [
   }
 
   .cta-link:not(.secondary) {
-    background: var(--color-text);
-    color: var(--color-bg);
+    background: var(--color-accent);
+    color: #ffffff;
   }
 
   .cta-link:not(.secondary):hover {
-    opacity: 0.8;
+    background: var(--color-accent-hover);
   }
 
   .cta-link.secondary {
@@ -399,8 +350,9 @@ const projects = [
   }
 
   .cta-link.secondary:hover {
-    background: var(--color-bg);
-    border-color: var(--color-text);
+    background: var(--color-overlay-light);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
 
   @media (max-width: 768px) {

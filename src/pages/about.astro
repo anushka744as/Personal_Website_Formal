@@ -1,8 +1,100 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const experiences = [
+  {
+    title: "Chief Developer & Experience Designer",
+    org: "STEMXplore",
+    duration: "Grade 11",
+    description: "Recreated 9 experiments using C#; reached 50+ schools in 11 states across India, impacting 25K+ students across grades 7–12. Ranked in the top 1.1% globally at the Blue Ocean Competition.",
+  },
+  {
+    title: "Department Head, Information, Communication & Tech",
+    org: "School Student Council",
+    duration: "Grade 11–12",
+    description: "Led a team of 20+ to host ShriteQ, North India's #1 tech fest with 1000+ footfall internationally; developed a cybersecurity module now integrated into the school curriculum.",
+  },
+  {
+    title: "Published Researcher & Assistant to Dr. Kuldeep Saha",
+    org: "Graph-Based Modeling of Fracture Patterns",
+    duration: "Grade 11–12",
+    description: "Computed Forman-Ricci curvature in Python using edge detection and derived a graph representation of fracture data to predict crack propagation in irregular mosaics using Topological Data Analysis.",
+  },
+  {
+    title: "Independent Researcher",
+    org: "Swarm Optimization",
+    duration: "Grade 12",
+    description: "Tested a range of algorithms to determine the most optimal and efficient approach for solving the Traveling Salesman Problem.",
+  },
+  {
+    title: "Designer, Mission Gaganyaan Mystery Room",
+    org: "Sapnoh Ke Pankh",
+    duration: "Grade 10–11",
+    description: "Designed and built a physics-themed mystery room simulating a mission to the moon, letting kids rediscover a lost passion for astrophysics. Awarded the Innovator's Award; brought the experience to 400+ children.",
+  },
+  {
+    title: "Team Head, Space Settlement Design Competition",
+    org: "SSDC",
+    duration: "Grade 9–10",
+    description: "Assembled and led a team of 12 to program a space colony simulation, running algorithmic modeling and futuristic tech R&D. Finished runner-up at the 2025 Asia-level competition against 30+ teams.",
+  },
+  {
+    title: "Fellow, Young Tech Scholars",
+    org: "Plaksha University",
+    duration: "Grade 10",
+    description: "Built an autonomous car that communicates over NRF and detects obstacles with ultrasonic sensors; secured runner-up in a race against 25+ teams while mentored by Ivy+ faculty.",
+  },
+  {
+    title: "Pragyan Scholar",
+    org: "ISRO Aerospace & Robotics Bootcamp",
+    duration: "Grade 11",
+    description: "Trained by ISRO educators in aerospace systems; built an autonomous quadcopter drone and rover implementing A* and RRT navigation algorithms, and tested solid rocket fuel.",
+  },
+  {
+    title: "Co-Founder, Website Designer & Photography Head",
+    org: "Aakash Ke Taare",
+    duration: "Grade 11",
+    description: "Designed the nonprofit's website and led photography and theatre workshops for students from low-income families, expanding access to performing arts education in rural communities.",
+  },
+  {
+    title: "Intern, Computer Engineering Wing",
+    org: "IRAME (AI-Powered SaaS)",
+    duration: "Grade 11",
+    description: "Built a Python prototype for AI-driven market research using REST APIs, FastAPI, and Uvicorn with web-scrapers, automating audits, analytics, and compliance workflows to support 6 distinct industries.",
+  },
+  {
+    title: "Participant Scholar",
+    org: "University of Chicago",
+    duration: "Grade 12",
+    description: "Spent 3 weeks on campus studying Discrete Mathematics and competed across all House Games, finishing 2nd by 4 points.",
+  },
+  {
+    title: "Participant",
+    org: "Ananta ASPEN Leadership School",
+    duration: "Grade 10",
+    description: "Completed an intensive program spanning Design Thinking, Theatre, and Leadership.",
+  },
+  {
+    title: "Participant, Lodha Tech for Change Competition",
+    org: "Intel AI for Youth",
+    duration: "Grade 11",
+    description: "Accepted into the Advance Bootcamp and engaged with Intel AI for Youth's 'Inspire and Explore' modules; expanded the project into an AI statistical model that predicts forest fires from environmental parameters.",
+  },
+];
+
+const honors = [
+  { description: "USACO Platinum", level: "International", grade: "11" },
+  { description: "AMC (124.5/150); double qualification for AIME (7)", level: "International", grade: "11" },
+  { description: "Subject Excellence Award for scoring A* in 6 subjects in the Pre-Boards", level: "School", grade: "10" },
+  { description: "Triveni Award for ECs; Innovator's Award for Mission Gaganyana, Srijn Award for CAS", level: "School" },
+  { description: "CREST Gold", level: "International", grade: "12" },
+  { description: "John Locke (Potentially)" },
+  { description: "Blue Ocean (Top 250)" },
+  { description: "AP Scholars Award" },
+];
 ---
 
-<Layout title="About - Nicol Rider">
+<Layout title="About - Abhyudaya Gupta">
   <div class="about-container">
     <div class="back-button">
       <a href="/" class="back-link">← Back to Home</a>
@@ -11,93 +103,83 @@ import Layout from '../layouts/Layout.astro';
     <div class="about-content">
       <div class="about-header">
         <h1>About Me</h1>
-        <p class="subtitle">Software Engineer & Creative Developer</p>
+        <p class="subtitle">Builder, Researcher & Tech Leader</p>
       </div>
-      
+
       <div class="about-grid">
         <div class="about-section">
           <h2>Background</h2>
           <p>
-            I'm a passionate software engineer with a love for creating innovative digital experiences. 
-            With expertise in modern web technologies, I specialize in building scalable applications 
-            that solve real-world problems.
+            I'm a high school student who likes turning ideas into things people can actually use —
+            whether that's a VR lab platform for schools that can't afford real ones, a graph-based
+            model for how fractures propagate, or a tech fest run for thousands of students.
           </p>
           <p>
-            My journey in tech began with curiosity and has evolved into a career focused on 
-            continuous learning and growth. I believe in writing clean, maintainable code and 
-            creating user experiences that make a difference.
+            I care most about STEM access: making experiments, research, and hands-on tech
+            available to students who'd otherwise never get the chance to try them.
           </p>
         </div>
-        
+
         <div class="about-section">
           <h2>Skills</h2>
           <div class="skills-grid">
             <div class="skill-category">
-              <h3>Frontend</h3>
+              <h3>Engineering</h3>
               <ul>
-                <li>React & Next.js</li>
-                <li>TypeScript</li>
-                <li>HTML5 & CSS3</li>
-                <li>Tailwind CSS</li>
-              </ul>
-            </div>
-            
-            <div class="skill-category">
-              <h3>Backend</h3>
-              <ul>
-                <li>Node.js</li>
+                <li>C# & Unity (VR/AR)</li>
                 <li>Python</li>
-                <li>PostgreSQL</li>
-                <li>MongoDB</li>
+                <li>REST APIs & FastAPI</li>
+                <li>Algorithms & Robotics</li>
               </ul>
             </div>
-            
+
             <div class="skill-category">
-              <h3>Tools</h3>
+              <h3>Research</h3>
               <ul>
-                <li>Git & GitHub</li>
-                <li>Docker</li>
-                <li>AWS</li>
-                <li>Figma</li>
+                <li>Topological Data Analysis</li>
+                <li>Graph Theory</li>
+                <li>Swarm Optimization</li>
+                <li>Data Modeling</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Leadership</h3>
+              <ul>
+                <li>Team & Event Management</li>
+                <li>Curriculum Design</li>
+                <li>Public Speaking</li>
+                <li>Nonprofit Building</li>
               </ul>
             </div>
           </div>
         </div>
-        
+
         <div class="about-section">
-          <h2>Experience</h2>
-          <div class="experience-item">
-            <h3>Senior Software Engineer</h3>
-            <p class="company">Tech Company Inc.</p>
-            <p class="duration">2022 - Present</p>
-            <p>
-              Leading development of scalable web applications using modern technologies. 
-              Mentoring junior developers and contributing to architectural decisions.
-            </p>
-          </div>
-          
-          <div class="experience-item">
-            <h3>Full Stack Developer</h3>
-            <p class="company">Startup XYZ</p>
-            <p class="duration">2020 - 2022</p>
-            <p>
-              Built and maintained multiple web applications from concept to deployment. 
-              Collaborated with cross-functional teams to deliver high-quality products.
-            </p>
-          </div>
+          <h2>Experience & Leadership</h2>
+          {experiences.map(exp => (
+            <div class="experience-item">
+              <h3>{exp.title}</h3>
+              <p class="company">{exp.org}</p>
+              <p class="duration">{exp.duration}</p>
+              <p>{exp.description}</p>
+            </div>
+          ))}
         </div>
-        
+
         <div class="about-section">
-          <h2>Education</h2>
-          <div class="education-item">
-            <h3>Bachelor of Science in Computer Science</h3>
-            <p class="institution">University of Technology</p>
-            <p class="duration">2016 - 2020</p>
-            <p>
-              Graduated with honors. Focused on software engineering, algorithms, and 
-              data structures. Completed capstone project on machine learning applications.
-            </p>
-          </div>
+          <h2>Honors & Awards</h2>
+          <ul class="honors-list">
+            {honors.map(honor => (
+              <li class="honor-item">
+                <div class="honor-text">
+                  <span class="honor-description">{honor.description}</span>
+                  {honor.level && <span class="honor-level">{honor.level}</span>}
+                </div>
+                {honor.grade && <span class="honor-grade">Grade {honor.grade}</span>}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       
@@ -105,9 +187,8 @@ import Layout from '../layouts/Layout.astro';
         <h2>Get In Touch</h2>
         <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
         <div class="contact-links">
-          <a href="mailto:nicol@example.com" class="contact-link">Email Me</a>
-          <a href="https://linkedin.com/in/nicolrider" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
-          <a href="https://github.com/nicolrider" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
+          <a href="mailto:abhyudaya.gupta.ag@gmail.com" class="contact-link">Email Me</a>
+          <a href="https://github.com/AbhyudayaGup" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
         </div>
       </div>
     </div>
@@ -136,7 +217,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .back-link:hover {
-    color: var(--color-text);
+    color: var(--color-accent);
   }
 
   .about-header {
@@ -166,17 +247,13 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .about-section {
-    background: rgba(245, 240, 232, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--color-surface-strong);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     padding: 32px;
-    border-radius: 8px;
+    border-radius: 16px;
     border: 1px solid var(--color-border);
     transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-
-  [data-theme="dark"] .about-section {
-    background: rgba(20, 20, 20, 0.85);
   }
 
   .about-section h2 {
@@ -260,19 +337,78 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 12px;
   }
 
-  .contact-section {
-    text-align: center;
-    background: rgba(245, 240, 232, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 48px;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+  .honors-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  [data-theme="dark"] .contact-section {
-    background: rgba(20, 20, 20, 0.85);
+  .honor-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .honor-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .honor-item:first-child {
+    padding-top: 0;
+  }
+
+  .honor-text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .honor-description {
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .honor-level {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--color-accent);
+    background: var(--color-overlay-light);
+    border: 1px solid var(--color-border);
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .honor-grade {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .honor-item {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+
+  .contact-section {
+    text-align: center;
+    background: var(--color-surface-strong);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 48px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .contact-section h2 {
@@ -299,18 +435,18 @@ import Layout from '../layouts/Layout.astro';
   .contact-link {
     display: inline-block;
     padding: 12px 24px;
-    background: var(--color-text);
-    color: var(--color-bg);
+    background: var(--color-accent);
+    color: #ffffff;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.9375rem;
     font-weight: 500;
     letter-spacing: -0.01em;
-    transition: opacity 0.2s ease;
+    transition: background-color 0.2s ease;
   }
 
   .contact-link:hover {
-    opacity: 0.8;
+    background: var(--color-accent-hover);
   }
 
   @media (max-width: 768px) {
