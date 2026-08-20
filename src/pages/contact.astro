@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
 
 const contactInfo = [
   { icon: "✉️", label: "Email", value: "abhyudaya.gupta.ag@gmail.com", href: "mailto:abhyudaya.gupta.ag@gmail.com" },
@@ -23,14 +24,11 @@ const socialLinks = [
 
 <Layout title="Contact - Abhyudaya Gupta">
   <div class="contact-page">
-    <div class="back-button">
-      <a href="/" class="back-link">← Back to Home</a>
-    </div>
-
-    <div class="contact-header">
-      <h1>Get In Touch</h1>
-      <p class="subtitle">Let's connect and explore opportunities together</p>
-    </div>
+    <PageHeader
+      eyebrow="Contact"
+      title="Get In Touch"
+      subtitle="Let's connect and explore opportunities together."
+    />
 
     <div class="contact-grid">
       <div class="contact-column">
@@ -74,45 +72,6 @@ const socialLinks = [
     position: relative;
   }
 
-  .back-button {
-    margin-bottom: 48px;
-  }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--color-text-muted);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    transition: color 0.2s ease;
-  }
-
-  .back-link:hover {
-    color: var(--color-accent);
-  }
-
-  .contact-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .contact-header h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--color-text);
-    margin-bottom: 12px;
-  }
-
-  .subtitle {
-    font-size: 1.0625rem;
-    color: var(--color-accent);
-    letter-spacing: -0.01em;
-    font-weight: 500;
-  }
-
   .contact-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -138,8 +97,7 @@ const socialLinks = [
     align-items: center;
     gap: 16px;
     background: var(--color-surface-strong);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-soft);
     border: 1px solid var(--color-border);
     border-radius: 16px;
     padding: 20px 24px;
@@ -184,10 +142,6 @@ const socialLinks = [
   @media (max-width: 768px) {
     .contact-page {
       padding: 32px 24px;
-    }
-
-    .contact-header h1 {
-      font-size: 1.875rem;
     }
 
     .contact-grid {

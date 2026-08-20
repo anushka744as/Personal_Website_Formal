@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
 
 const stats = [
   { value: "1500", label: "SAT Superscore" },
@@ -82,7 +83,7 @@ const scores = [
     max: "42",
     description: "IB Diploma Programme · Grade 11",
     date: "2026",
-    badge: "Personal Best",
+    //badge: "Personal Best",
     highlight: true,
   },
 ];
@@ -90,14 +91,11 @@ const scores = [
 
 <Layout title="Achievements - Abhyudaya Gupta">
   <div class="achievements-page">
-    <div class="back-button">
-      <a href="/" class="back-link">← Back to Home</a>
-    </div>
-
-    <div class="achievements-header">
-      <h1>Academic Achievements</h1>
-      <p class="subtitle">A record of excellence in standardized testing and coursework</p>
-    </div>
+    <PageHeader
+      eyebrow="Academics"
+      title="Academic Achievements"
+      subtitle="A record of excellence in standardized testing and coursework."
+    />
 
     <div class="achievements-content">
       <div class="stats-grid">
@@ -110,7 +108,7 @@ const scores = [
       </div>
 
       <div class="scores-grid">
-        {scores.map(item => (
+        {scores.map((item, i) => (
           <div class:list={["score-card", { highlight: item.highlight }]}>
             <div class="score-icon">{item.icon}</div>
             <h3 class="score-name">{item.name}</h3>
@@ -137,45 +135,6 @@ const scores = [
     position: relative;
   }
 
-  .back-button {
-    margin-bottom: 48px;
-  }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--color-text-muted);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    transition: color 0.2s ease;
-  }
-
-  .back-link:hover {
-    color: var(--color-accent);
-  }
-
-  .achievements-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .achievements-header h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--color-text);
-    margin-bottom: 12px;
-  }
-
-  .subtitle {
-    font-size: 1.0625rem;
-    color: var(--color-accent);
-    letter-spacing: -0.01em;
-    font-weight: 500;
-  }
-
   .achievements-content {
     position: relative;
   }
@@ -189,8 +148,7 @@ const scores = [
 
   .stat-tile {
     background: var(--color-surface-strong);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-soft);
     border: 1px solid var(--color-border);
     border-radius: 16px;
     padding: 28px 20px;
@@ -221,8 +179,7 @@ const scores = [
 
   .score-card {
     background: var(--color-surface-strong);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-soft);
     border: 1px solid var(--color-border);
     border-radius: 16px;
     padding: 28px;
@@ -295,6 +252,7 @@ const scores = [
     letter-spacing: -0.01em;
     padding: 6px 16px;
     border-radius: 999px;
+    margin-bottom: 8px;
   }
 
   @media (max-width: 900px) {
@@ -310,10 +268,6 @@ const scores = [
   @media (max-width: 640px) {
     .achievements-page {
       padding: 32px 24px;
-    }
-
-    .achievements-header h1 {
-      font-size: 1.875rem;
     }
 
     .stats-grid,

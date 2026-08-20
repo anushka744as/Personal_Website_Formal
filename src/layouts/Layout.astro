@@ -21,13 +21,15 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
     <link rel="icon" type="image/svg+xml" href="/public/images/AG.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <ViewTransitions />
   </head>
   <body>
     <div class="theme-sweep" aria-hidden="true"></div>
-    <ParticleCanvas />
-    <nav class="navbar" id="main-navbar">
+    <ParticleCanvas transition:persist />
+    <nav class="navbar" id="main-navbar" transition:persist>
       <div class="nav-shell">
         <div class="nav-container">
           <div class="nav-left">
@@ -132,6 +134,8 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
       }, { passive: true });
 
       document.addEventListener('astro:after-swap', () => {
+        const swappedTheme = localStorage.getItem('theme');
+        applyTheme(swappedTheme === 'dark' || swappedTheme === 'light' ? swappedTheme : 'light');
         isScrolled = false;
         updateNavbarState();
       });
@@ -143,6 +147,26 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
         const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
         applyTheme(nextTheme);
         runThemeSweep(nextTheme, btn);
+      });
+
+      document.addEventListener('click', (event) => {
+        const opener = event.target.closest('[data-modal-open]');
+        if (opener) {
+          const dialog = document.getElementById(opener.getAttribute('data-modal-open'));
+          if (dialog && typeof dialog.showModal === 'function') dialog.showModal();
+          return;
+        }
+
+        const closer = event.target.closest('[data-modal-close]');
+        if (closer) {
+          const dialog = closer.closest('dialog');
+          if (dialog) dialog.close();
+          return;
+        }
+
+        if (event.target.tagName === 'DIALOG' && event.target.open) {
+          event.target.close();
+        }
       });
     </script>
   </body>
@@ -162,7 +186,7 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-body);
     font-size: 16px;
     line-height: 1.7;
     letter-spacing: -0.01em;
@@ -247,6 +271,12 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
     -webkit-tap-highlight-color: transparent;
   }
 
+  :global(h1),
+  :global(h2),
+  :global(h3) {
+    font-family: var(--font-heading);
+  }
+
   .theme-sweep {
     position: fixed;
     inset: 0;
@@ -265,8 +295,8 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
     height: 18px;
     transform: translate(-50%, -50%) scale(0.3);
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.98), rgba(200,181,255,0.9) 18%, rgba(146,117,234,0.92) 38%, rgba(48,31,83,0.96) 100%);
-    box-shadow: 0 0 0 10px rgba(164, 140, 255, 0.12), 0 0 80px rgba(126,92,232,0.24);
+    background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.98), rgba(196,188,236,0.9) 18%, rgba(124,111,214,0.92) 38%, rgba(33,31,43,0.96) 100%);
+    box-shadow: 0 0 0 10px rgba(124, 111, 214, 0.1), 0 0 80px rgba(124,111,214,0.2);
     transition: transform 1.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.2s ease;
   }
 
@@ -301,42 +331,16 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 82px;
+    height: 76px;
     width: 100%;
     padding: 0 26px 0 20px;
     background: var(--color-navbar-bg);
-    border: 2px solid var(--color-navbar-edge);
+    border: 1px solid var(--color-navbar-edge);
     border-top: 0;
-    border-bottom-width: 7px;
-    border-radius: 0 0 30px 30px;
-    backdrop-filter: blur(22px) saturate(150%);
-    -webkit-backdrop-filter: blur(22px) saturate(150%);
-    box-shadow: 0 18px 30px var(--color-navbar-shadow), inset 0 1px 0 rgba(255,255,255,0.34);
+    border-radius: 0 0 24px 24px;
+    box-shadow: var(--shadow-soft);
     transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
     position: relative;
-  }
-
-  .nav-container::before {
-    content: '';
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    top: 0;
-    height: 1px;
-    background: rgba(255,255,255,0.42);
-    pointer-events: none;
-  }
-
-  .nav-container::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    height: 12px;
-    background: linear-gradient(180deg, var(--color-navbar-depth), rgba(0,0,0,0));
-    border-radius: 0 0 30px 30px;
-    pointer-events: none;
   }
 
   .nav-left,
@@ -358,17 +362,10 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
 
   .navbar.is-scrolled .nav-container {
     height: 62px;
-    border-top-width: 2px;
-    border-bottom-width: 5px;
-    border-radius: 32px;
+    border-radius: 999px;
     background: var(--color-navbar-bg-solid);
-    box-shadow: 0 22px 48px var(--color-navbar-shadow), inset 0 1px 0 rgba(255,255,255,0.42);
+    box-shadow: var(--shadow-elevated);
     animation: popOut 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-  }
-
-  .navbar.is-scrolled .nav-container::after {
-    height: 10px;
-    border-radius: 0 0 32px 32px;
   }
 
   .nav-left {
@@ -394,8 +391,9 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
   }
 
   .nav-logo {
+    font-family: var(--font-heading);
     font-size: 1.05rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.02em;
     color: var(--color-text);
     text-decoration: none;
@@ -415,17 +413,18 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
   .nav-menu {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 30px;
     padding: 10px 12px;
   }
 
   .nav-link {
+    font-family: var(--font-mono);
     text-decoration: none;
     color: var(--color-text-muted);
-    font-size: 0.84rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
     transition: color 0.2s ease;
     position: relative;
   }
@@ -451,26 +450,24 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
   }
 
   .theme-toggle {
-    background: rgba(255, 255, 255, 0.12);
-    border: 1.5px solid rgba(129, 117, 156, 0.42);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
     border-radius: 999px;
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-text-muted);
     transition: all 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.24), 0 8px 18px rgba(126,92,232,0.08);
   }
 
   .theme-toggle:hover {
-    background: rgba(142, 122, 209, 0.12);
+    background: var(--color-overlay-medium);
     color: var(--color-accent);
     transform: translateY(-1px) scale(1.03);
-    border-color: rgba(129, 117, 156, 0.6);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 12px 22px rgba(126,92,232,0.12);
+    border-color: var(--color-accent-4);
   }
 
   .sun-icon {
@@ -495,7 +492,7 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
   }
 
   .footer {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--color-bg-secondary);
     border-top: 1px solid var(--color-border);
     padding: 30px 0 40px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -534,6 +531,167 @@ const { title, description = "Abhyudaya Gupta - Personal Portfolio" } = Astro.pr
 
   .social-links a:hover {
     color: var(--color-accent);
+  }
+
+  :global(dialog.detail-modal) {
+    border: none;
+    padding: 0;
+    width: calc(100% - 48px);
+    max-width: 480px;
+    border-radius: var(--radius);
+    background: var(--color-surface-strong);
+    color: var(--color-text);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  :global(dialog.detail-modal::backdrop) {
+    background: rgba(20, 19, 26, 0.55);
+    backdrop-filter: blur(4px);
+  }
+
+  :global(dialog.detail-modal[open]) {
+    animation: modalIn 0.26s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(14px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  :global(.modal-inner) {
+    position: relative;
+    padding: 36px;
+    text-align: center;
+  }
+
+  :global(.modal-close) {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 999px;
+    background: var(--color-overlay-medium);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  :global(.modal-close:hover) {
+    background: var(--color-overlay-strong);
+    color: var(--color-accent);
+  }
+
+  :global(.modal-icon) {
+    font-size: 2.5rem;
+    margin-bottom: 14px;
+  }
+
+  :global(.modal-title) {
+    font-size: 1.375rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 14px;
+  }
+
+  :global(.modal-score) {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  :global(.modal-score .modal-score-number) {
+    color: var(--color-accent);
+  }
+
+  :global(.modal-score .modal-score-sep) {
+    color: var(--color-text-muted);
+    margin: 0 2px;
+  }
+
+  :global(.modal-score .modal-score-max) {
+    color: var(--color-text-muted);
+  }
+
+  :global(.modal-description) {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+  }
+
+  :global(.modal-meta) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  :global(.modal-tag) {
+    display: inline-block;
+    background: var(--color-overlay-medium);
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  :global(.modal-date) {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  :global(.modal-link) {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    background: var(--color-accent);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: background-color 0.2s ease;
+  }
+
+  :global(.modal-link:hover) {
+    background: var(--color-accent-hover);
+  }
+
+  :global(.view-details) {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-accent);
+    cursor: pointer;
+    transition: gap 0.2s ease;
+  }
+
+  :global(.view-details:hover) {
+    gap: 8px;
   }
 
   @media (max-width: 768px) {

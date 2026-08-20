@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
 
 const honors = [
   {
@@ -57,18 +58,15 @@ const honors = [
 
 <Layout title="Honors - Abhyudaya Gupta">
   <div class="honors-page">
-    <div class="back-button">
-      <a href="/" class="back-link">← Back to Home</a>
-    </div>
-
-    <div class="honors-header">
-      <h1>Honors &amp; Awards</h1>
-      <p class="subtitle">Recognition earned across competitions, school, and extracurriculars</p>
-    </div>
+    <PageHeader
+      eyebrow="Recognition"
+      title="Honors & Awards"
+      subtitle="Recognition earned across competitions, school, and extracurriculars."
+    />
 
     <div class="honors-content">
       <div class="honors-grid">
-        {honors.map(item => (
+        {honors.map((item, i) => (
           <div class:list={["honor-card", { highlight: item.highlight }]}>
             <div class="honor-icon">{item.icon}</div>
             <h3 class="honor-name">{item.name}</h3>
@@ -91,45 +89,6 @@ const honors = [
     position: relative;
   }
 
-  .back-button {
-    margin-bottom: 48px;
-  }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--color-text-muted);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    transition: color 0.2s ease;
-  }
-
-  .back-link:hover {
-    color: var(--color-accent);
-  }
-
-  .honors-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .honors-header h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--color-text);
-    margin-bottom: 12px;
-  }
-
-  .subtitle {
-    font-size: 1.0625rem;
-    color: var(--color-accent);
-    letter-spacing: -0.01em;
-    font-weight: 500;
-  }
-
   .honors-content {
     position: relative;
   }
@@ -142,8 +101,7 @@ const honors = [
 
   .honor-card {
     background: var(--color-surface-strong);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-soft);
     border: 1px solid var(--color-border);
     border-radius: 16px;
     padding: 24px 28px;
@@ -193,10 +151,6 @@ const honors = [
   @media (max-width: 640px) {
     .honors-page {
       padding: 32px 24px;
-    }
-
-    .honors-header h1 {
-      font-size: 1.875rem;
     }
 
     .honors-grid {

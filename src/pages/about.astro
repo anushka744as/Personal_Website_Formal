@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
 
 const experiences = [
   {
@@ -96,15 +97,12 @@ const honors = [
 
 <Layout title="About - Abhyudaya Gupta">
   <div class="about-container">
-    <div class="back-button">
-      <a href="/" class="back-link">← Back to Home</a>
-    </div>
-    
     <div class="about-content">
-      <div class="about-header">
-        <h1>About Me</h1>
-        <p class="subtitle">Builder, Researcher & Tech Leader</p>
-      </div>
+      <PageHeader
+        eyebrow="About"
+        title="About Me"
+        subtitle="Builder, researcher & tech leader."
+      />
 
       <div class="about-grid">
         <div class="about-section">
@@ -201,45 +199,6 @@ const honors = [
     margin: 0 auto;
     padding: 64px 48px;    position: relative;  }
 
-  .back-button {
-    margin-bottom: 48px;
-  }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--color-text-muted);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    transition: color 0.2s ease;
-  }
-
-  .back-link:hover {
-    color: var(--color-accent);
-  }
-
-  .about-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .about-header h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--color-text);
-    margin-bottom: 12px;
-  }
-
-  .subtitle {
-    font-size: 1.0625rem;
-    color: var(--color-accent);
-    letter-spacing: -0.01em;
-    font-weight: 500;
-  }
-
   .about-grid {
     display: grid;
     gap: 32px;
@@ -248,8 +207,7 @@ const honors = [
 
   .about-section {
     background: var(--color-surface-strong);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-soft);
     padding: 32px;
     border-radius: 16px;
     border: 1px solid var(--color-border);
@@ -403,8 +361,7 @@ const honors = [
   .contact-section {
     text-align: center;
     background: var(--color-surface-strong);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-soft);
     padding: 48px;
     border-radius: 16px;
     border: 1px solid var(--color-border);
@@ -452,10 +409,6 @@ const honors = [
   @media (max-width: 768px) {
     .about-container {
       padding: 32px 24px;
-    }
-
-    .about-header h1 {
-      font-size: 1.875rem;
     }
 
     .skills-grid {
