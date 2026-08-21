@@ -3,7 +3,7 @@
 // No React dependency issues - works reliably
 ---
 
-<div id="particle-container" class="particle-container"></div>
+<div id="particle-container" class="particle-container" transition:persist transition:name="particle-bg"></div>
 
 <style>
   .particle-container {
@@ -28,7 +28,9 @@
     const container = document.getElementById('particle-container');
     if (!container) return;
 
-    const canvas = document.createElement('canvas');
+    let canvas = container.querySelector('canvas');
+    if (canvas) return;
+    canvas = document.createElement('canvas');
     container.appendChild(canvas);
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
