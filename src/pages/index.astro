@@ -76,13 +76,14 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   :global(html) {
-    overflow: hidden;
-    height: 100%;
+    height: auto;
+    min-height: 100%;
   }
 
   :global(body) {
-    overflow: hidden;
-    height: 100vh;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
   }
 
   :global(.footer) {
@@ -95,15 +96,14 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .hero {
-    height: 100vh;
-    min-height: 640px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
     color: var(--color-text);
     text-align: left;
-    padding: 116px 24px 44px;
+    padding: clamp(88px, 15vh, 116px) 24px clamp(24px, 4vh, 44px);
     transition: background-color 0.3s ease;
   }
 
@@ -131,7 +131,7 @@ import Layout from '../layouts/Layout.astro';
 
   .hero-photo-frame {
     position: relative;
-    width: clamp(200px, 18vw, 280px);
+    width: clamp(160px, min(18vw, 32vh), 280px);
     aspect-ratio: 1 / 1;
     border-radius: 32px;
     overflow: hidden;
@@ -193,14 +193,14 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 500;
     letter-spacing: -0.02em;
     color: var(--color-text-muted);
-    margin-bottom: 20px;
+    margin-bottom: clamp(10px, 2vh, 20px);
   }
 
   .hero-bio {
     max-width: 680px;
-    margin: 0 0 24px;
+    margin: 0 0 clamp(12px, 2.2vh, 24px);
     font-size: clamp(0.9rem, 1.1vw, 1rem);
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--color-text-muted);
   }
 
@@ -209,13 +209,13 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.95rem;
     color: var(--color-text-muted);
     opacity: 0.85;
-    margin-bottom: 40px;
+    margin-bottom: clamp(16px, 3.5vh, 40px);
   }
 
   .action-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 26px;
+    gap: clamp(14px, 2vh, 26px);
     max-width: 700px;
     margin: 0;
   }
@@ -227,8 +227,8 @@ import Layout from '../layouts/Layout.astro';
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    min-height: 228px;
-    padding: 26px 18px 24px;
+    min-height: clamp(150px, 20vh, 228px);
+    padding: clamp(16px, 2.5vh, 26px) 18px clamp(14px, 2vh, 24px);
     text-decoration: none;
     color: var(--color-text);
     background: var(--color-surface);
@@ -282,8 +282,8 @@ import Layout from '../layouts/Layout.astro';
   .action-icon {
     position: relative;
     z-index: 1;
-    width: 92px;
-    height: 92px;
+    width: clamp(56px, 9vh, 92px);
+    height: clamp(56px, 9vh, 92px);
     margin-top: 6px;
     display: grid;
     place-items: center;
@@ -303,8 +303,8 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .action-icon svg {
-    width: 40px;
-    height: 40px;
+    width: clamp(26px, 3.5vh, 40px);
+    height: clamp(26px, 3.5vh, 40px);
     stroke-width: 1.7;
   }
 
